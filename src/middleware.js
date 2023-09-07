@@ -8,7 +8,6 @@ export function middleware(request) {
   const googleToken = request.cookies.get('next-auth.session-token')?.value ?? ""
   const path = request.nextUrl.pathname;
   const isAuthenticatin = token || googleToken; 
-  console.log(isAuthenticatin,'isAuthenticatin')
   const isPulblicPath = path === '/login' || path === '/signup';
   if (isPulblicPath) {
     if (isAuthenticatin) {
