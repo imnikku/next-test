@@ -5,7 +5,6 @@ import { NotificationManager } from 'react-notifications';
 import { setCookie } from 'cookies-next';
 import { useRouter } from 'next/navigation';
 import axios from 'axios';
-import InactivityTimer from './InactiveUser';
 
 
 function Login() {

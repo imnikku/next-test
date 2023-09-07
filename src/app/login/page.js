@@ -11,9 +11,10 @@ export default function SignIn() {
 
   const handleGoogleLogin = async () => {
     setSignInLoading(true);
-    const data = await signIn('google', { callbackUrl: 'http://localhost:3000/dashboard' });
+    const data = await signIn('google', { callbackUrl: `${process.env.AUTH_REDIRECT_URL}/dashboard` });
     setSignInLoading(false);
   }
+  
   return (
     <div className={styles.container}>
       <NotificationContainer />

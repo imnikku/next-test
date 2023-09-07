@@ -21,7 +21,7 @@ export default function Dashboard() {
       router.push('/login');
     } else if (session?.user) {
       deleteCookie('token');
-      signOut({ callbackUrl: 'http://localhost:3000/login' });
+      signOut({ callbackUrl: `${process.env.AUTH_REDIRECT_URL}/login` });
 
     }
 
@@ -32,10 +32,10 @@ export default function Dashboard() {
     border: '1px solid #fff',
     margin: 'auto',
   }
-  
+
   return (
     <main className='flex min-h-screen flex-col items-center justify-between p-24'>
-       <div className={styles.userprofilecart}>
+      <div className={styles.userprofilecart}>
         <p>Welcome  {user?.email ?? session?.user?.name}</p>
         <InactivityTimer timeoutInSeconds={90} handlelogout={handlelogout} />
         <div className="user-info mt-4">
@@ -50,7 +50,7 @@ export default function Dashboard() {
         <div className={styles.cartBtn}>
           <button className={styles.btnBlue} onClick={() => handlelogout()}>Logout</button>
         </div>
-      </div> 
+      </div>
     </main>
   )
 }
